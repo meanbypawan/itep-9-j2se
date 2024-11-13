@@ -1,0 +1,7 @@
+Java is platform independent
+Java is architecutral neural
+Java is object oreinted
+Java is simple
+Java is secure 
+Java is multithreaded
+Java is robust
