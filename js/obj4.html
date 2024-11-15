@@ -1,0 +1,22 @@
+<script>
+    var arr1 = [10,20,30];
+    var arr2 = [...arr1];
+
+    arr2.splice(1,1);
+    document.write(arr1); // [10,30]
+    document.write("<hr/>");
+
+    var obj1 = {a:10,b:20};
+    var obj2 = {...obj1,c:500};
+    document.write(obj2.a+"  "+obj2.b+"  "+obj2.c);
+    //----------------------------------------------------------
+    var x1 = [10,20,30,40]; //  ""
+    x1 = JSON.stringify(x1);
+    var x2 = JSON.parse(x1);
+    // JSON.parse(JSON.stringify(x1));
+</script>
+
+
+
+
+

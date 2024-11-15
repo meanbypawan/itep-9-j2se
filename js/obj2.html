@@ -1,0 +1,47 @@
+<script>
+    var customerList = [
+        {
+            id: 100,
+            name: "A",
+            age: 25
+        },
+        {
+            id: 101,
+            name:"B",
+            age: 28
+        },
+        {
+            id: 102,
+            name:"C",
+            age: 21
+        },
+        {
+            id: 103,
+            name:"D",
+            age: 29
+        }
+    ];
+    document.write("<table width='100%' border='1'>");
+    document.write("<tr>");
+    document.write("<td>Id</td>");
+    document.write("<td>Name</td>");
+    document.write("<td>Age</td>");
+    document.write("<td>Delete</td>");
+    document.write("</tr>");
+    for(let customer of customerList){
+        document.write(`<tr id='row${customer.id}'>`);
+        document.write(`<td>${customer.id}</td>`);
+        document.write(`<td>${customer.name}</td>`);
+        document.write(`<td>${customer.age}</td>`);
+        document.write(`<td><button onclick='deleteCusomter(${customer.id})'>Delete</button></td>`);
+        document.write("</tr>");
+    }
+    document.write("</table>");
+    
+    function deleteCusomter(id){
+       let index = customerList.findIndex((customer)=>{return customer.id == id});
+       customerList.splice(index,1);
+       document.getElementById("row"+id).remove();
+       window.alert("Record removed....");
+    }
+</script>
