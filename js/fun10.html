@@ -1,0 +1,25 @@
+<script>
+    function Messages(x){
+      this.data = x;  
+      this.m1 = ()=>{
+        console.log("GM..."+this.data);
+      }
+      this.m2 = ()=>{
+        console.log("GE.....");
+      }
+      this.m3 = ()=>{
+        console.log("GN......");
+      }
+    }
+
+    let obj = new Messages(10); // obj :{m1:fun(),m2:(),m3:(),data:10}
+    let obj2 = new Messages(20);// obj :{m1:fun(),m2:(),m3:(),data:20}
+    let obj3 = new Messages(30);// obj :{m1:fun(),m2:(),m3:(),data:30}
+    obj.m1(); // this ---> obj
+    obj2.m1();
+    obj3.m1(); 
+</script>
+
+
+
+

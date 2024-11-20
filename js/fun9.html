@@ -1,0 +1,15 @@
+<script>
+    function f1(l){
+      return (w)=>{
+        return (h)=>{
+            return l*w*h;
+        }
+      }
+    }
+
+   //let result =  f1(2)(3)(4);
+   const a = f1(2);
+   const b = a(3);
+   const result = b(4);
+   console.log("Result : "+result);
+</script>

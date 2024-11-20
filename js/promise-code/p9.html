@@ -1,0 +1,55 @@
+<script>
+    const first = (val)=>{
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                console.log("Inside First : "+val);
+                resolve(val+2);
+            },5000);
+        });
+    }
+
+    const second = (val)=>{
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                console.log("Inside Second : "+val);
+                resolve(val+2);
+            },3000);
+        });
+    }
+    const third = (val)=>{
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                console.log("Inside Third : "+val);
+                resolve(val+2);
+            },5000);
+        })
+    }
+    const fourth = (val)=>{
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                console.log("Inside Fourth : "+val);
+                resolve(val+2);
+            },3500);
+        })
+    }
+    async function executeTask(){
+      try{  
+        let x = await first(10);
+        x = await second(x);
+        x = await third(x);
+        await fourth(x);
+      }
+      catch(err){
+        console.log(err);
+      } 
+    }  
+
+    executeTask();
+</script>
+
+
+
+
+
+
+

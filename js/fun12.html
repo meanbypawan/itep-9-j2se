@@ -1,0 +1,16 @@
+<script>
+    function f1(){
+        let x = 100;
+        function f(){
+            console.log("Inside f : "+x);
+        }
+        return function f2(){
+            console.log("Inside f2 : ");
+            return f;
+        }
+    }
+
+    const f2 = f1(); // Inside f2 : 
+    const f = f2(); // Inside f : 100
+    f();
+</script>

@@ -1,0 +1,35 @@
+<script>
+    const first = (n,callback)=>{
+        setTimeout(()=>{
+            console.log("Inside First : "+n);
+            callback(n+2);
+        },4000);
+    };
+    const second = (n,callback)=>{
+        setTimeout(()=>{
+            console.log("Inside Second : "+n);
+            callback(n+2);
+        },3000);
+    }
+    const third = (n,callback)=>{
+        setTimeout(()=>{
+            console.log("Inside Third : "+n);
+            callback(n+2);
+        },5000);
+    }
+    const fourth = (n,callback)=>{
+        setTimeout(()=>{
+            console.log("Inside Fourth : "+n);
+            callback();
+        },3500);
+    }
+    first(10,(val)=>{
+        second(val,(val)=>{
+          third(val,(val)=>{
+           fourth(val,()=>{
+            console.log("All Task Done....");
+           })
+          })
+        })
+    })
+</script>

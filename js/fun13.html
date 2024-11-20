@@ -1,0 +1,27 @@
+<script>
+    /*
+      const eatingPizza = ()=>{} --- : 5000 
+      const meetingWithFriends = ()=>{} : 6000
+      const servicingCar = ()=>{} ----- : 3000
+    */
+    console.log("At the start...");
+    const eatingPizza = ()=>{
+        setTimeout(()=>{
+            console.log("Pizza Done...");
+        },5000);
+    }
+    const meetingWithFriends = ()=>{
+        setTimeout(()=>{
+            console.log("Meeting Done...");
+        },6000);
+    }
+    const servicingCar = ()=>{
+        setTimeout(()=>{
+            console.log("Service Dine...");
+        },3000);
+    }
+    eatingPizza(); //  5000
+    meetingWithFriends(); // 6000
+    servicingCar(); // 3000
+    console.log("At the end....");
+</script>
