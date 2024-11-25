@@ -1,0 +1,4 @@
+NodeJs is superfase and highly scalable
+NodeJs is suitable for IO-intensive application
+NodeJs is single threaded
+NodeJs is asynchronous by default..
