@@ -18,14 +18,11 @@ export const signUp = async (request,response,next)=>{
     if(!errors.isEmpty())
       return response.status(401).json({error: errors.array()});
     
-    let {password} = request.body;
-    let saltKey =  bcrypt.genSaltSync(10);
-    password =  bcrypt.hashSync(password,saltKey);
-    request.body.password = password;
     let result = await User.create(request.body);
     return response.status(201).json({message:  "user created..."});
   }
   catch(err){
+    console.log(err);
     return response.status(500).json({error: "Internal Server Error"});
   }  
 }
