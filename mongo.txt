@@ -1,0 +1,120 @@
+
+MySQL -:
+  Database ----> Table-----> Record/Row/Tuple
+  
+MongoDB :-
+  Database ---> Collection-->Record/Documents
+  
+  Creting Database :-
+    use databaseName
+ 
+  Creating Collection
+    db.createCollection('user') :--- uncapped collection
+    db.employee.isCapped()
+    
+  Collection :-
+   1. Capped Collection
+   2. Uncapped Collection  
+   
+   db.employee.insert({name:"A",salary: 90000, skill: 'java'});
+   db.employee.insertMany([
+     {name: "C", salary: 50000, skill: 'reactjs'},
+     {name: "B", salary: 170000, skill: 'angular'},
+     {name: "D", salary: 98000, skill: 'android'},
+     {name: "G", salary: 91000, skill: 'java'},
+     {name: "F", salary: 124000, skill: 'html'},
+     {name: "I", salary: 68000, skill: 'ractjs'},
+     {name: "H", salary: 55000, skill: 'java'}
+     
+   ]);
+   
+   db.test.insert({name: "A"})
+   db.test.drop()
+-------------------------------------------------------------
+   // select * from employee
+   db.employee.find()   
+   
+   // select * from employee where skill='java'
+   db.employee.find({skill: 'java'})
+   
+   db.employee.find({skill: 'java'},{name: 1, skill: 1,_id:0})
+---------------------------------------------------------------
+  operator :-
+      
+   $gt, $lt, $gte, $lte, $ne, $eq, $and, $or
+   $lookup
+   db.employee.find({salary:{$gte:70000} })
+   
+   db.employee.find({$and:[{skill:"java"},{salary:{$gte:90000}}]})  
+   db.employee.find({
+      $or:[
+        {skill: 'java'},
+        {salary: {$gte:90000}}
+      ]
+   })
+   
+  db.employee.find({salary:{$eq:90000}})   
+   
+  db.employee.find({
+    salary: db.employee.find().sort({salary: -1}).limit(1).toArray()[0].salary
+  }) 
+   
+  db.employee.find({
+    salary: db.employee.find({
+       salary: {$lt: db.employee.find().sort({salary: -1}).limit(1).toArray()[0].salary}
+    }).sort({salary:-1}).limit(1).toArray()[0].salary
+  }) 
+  
+  db.employee.find({
+    salar: {$lt: db.employee.find().sort({salary: -1}).limit(1).toArray()[0].salary}
+  }).sort({salary:-1}).limit(1).toArray()[0].salary 
+ -----------------------------------------------------------------------------------
+  db.category.aggregate();
+  db.category.aggregate([
+    {
+       $match:{slug: 'beauty'}
+    }
+  ])  
+  
+  db.category.aggregate([
+    {
+       $lookup:{
+          from: 'product',
+          foreignField: 'category',
+          localField: 'slug',
+          as: 'product_details'
+       }
+    },
+    {
+      $match:{
+         slug: 'beauty'
+      }
+    },
+    {
+      $project:{slug:1,product_details: 1,$product_details.id: 1,$product_details.title:1}
+    }
+  ]) 
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
