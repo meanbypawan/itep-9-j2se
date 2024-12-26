@@ -1,0 +1,26 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <center>
+            <img id="main" src="./images/banner.jpeg" width="200" height="200"/>
+            <br><br>
+            <button onclick="increaseSize()">+</button>
+            <button onclick="decreaseSize()">-</button>
+        </center>
+        <script>
+            function increaseSize(){
+               let obj = document.getElementById("main");
+               obj.width = obj.width*1 + 20;
+               obj.height = obj.height*1 + 20;
+            }
+            function decreaseSize(){
+               let obj = document.getElementById("main");
+               obj.width = obj.width*1 - 20;
+               obj.height = obj.height*1 - 20;
+            
+            }
+        </script>    
+    </body>
+</html>

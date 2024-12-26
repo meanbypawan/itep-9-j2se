@@ -1,0 +1,51 @@
+<html>
+    <body>
+        <button onclick="changeTheme('red','mediumseagreen')">Red-green</button>&nbsp;&nbsp;&nbsp;
+        <button onclick="changeTheme('blue','orange')">Blue-orange</button>&nbsp;&nbsp;&nbsp;
+        <button onclick="changeTheme('pink','yellow')">Pink-yellow</button>
+        <table id="dataTable" border="1" width="100%">
+                <thead>
+                    <tr>
+                        <th>Header 1</th>
+                        <th>Header 2</th>
+                        <th>Header 3</th>
+                        <th>Header 4</th>
+                        <th>Header 5</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table rows -->
+                    <script>
+                        for(let i=1; i<=10; i++){
+                            document.write(`<tr id="row${i}">
+                            <td>Row ${i}, Col ${i}</td>
+                            <td>Row ${i}, Col ${i}</td>
+                            <td>Row ${i}, Col ${i}</td>
+                            <td>Row ${i}, Col ${i}</td>
+                            <td>Row ${i}, Col ${i}</td>
+                            <td><button id="btn${i}" onclick="deleteRow('${i}')" class="delete-btn"><b><a href=''>Delete</a></b></button></td>
+                            </tr>`)
+                        }
+                    </script>
+                </tbody>
+            </table>
+        <script>
+            function deleteRow(rowNumber){
+               if(window.confirm("Do you want to delete it ?")){ 
+                document.getElementById("row"+rowNumber).remove();
+               } 
+            }
+            function changeTheme(firstColor,secondColor){
+                let table = document.getElementById("dataTable");
+                let rowArray = table.rows;
+                for(let i=0; i<rowArray.length; i++){
+                    if(i%2==0)
+                      rowArray[i].style.backgroundColor = firstColor;
+                    else
+                      rowArray[i].style.backgroundColor = secondColor;  
+                }         
+            }
+        </script>
+    </body>
+</html>
