@@ -5,7 +5,9 @@ import UserRouter from "./routes/user.route.js";
 import CategoryRouter from "./routes/category.route.js";
 import ProductRouter from "./routes/product.route.js";
 import CartRouter from "./routes/cart.route.js";
+import cors from "cors";
 const app = express();
+app.use(cors());
 mongoose.connect("mongodb://localhost:27017/eshopdb")
 .then(()=>{
   console.log("Database connected...");
@@ -17,7 +19,7 @@ mongoose.connect("mongodb://localhost:27017/eshopdb")
   app.use("/product",ProductRouter);
   app.use("/cart",CartRouter);
 
-  app.listen(3000,()=>{
+  app.listen(3001,()=>{
     console.log("Server Started....");
   });
 

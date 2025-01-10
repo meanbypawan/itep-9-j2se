@@ -18,6 +18,12 @@ function Header(){
        <Link to="/sign-up">
          <button style={{border:"1px solid white"}} className="btn bg-transparent text-white">Sign up</button>
        </Link>
+       <Link to="/test-reducer">
+         <button style={{border:"1px solid white"}} className="btn bg-transparent text-white">Test Reducer</button>
+       </Link>
+       <Link to="/multi-state">
+         <button style={{border:"1px solid white"}} className="btn bg-transparent text-white">Multi-state-reducer</button>
+       </Link>
       </div>
     </>
 }
