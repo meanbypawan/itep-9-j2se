@@ -18,7 +18,7 @@ const productSchema = new mongoose.Schema({
     reviews: [],
     returnPolicy: String,
     images:[],
-    thumbnails: String    
+    thumbnail: String    
 });
 
 export const Product = mongoose.model("product",productSchema);
